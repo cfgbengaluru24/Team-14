@@ -24,6 +24,7 @@ export default function Home({ userDetails }) {
         
         
       )}
+      <div>This is the Home Page!</div>
     </>
   );
 }

@@ -19,7 +19,7 @@ const SendMessage = () => {
   };
 
   return (
-    <div>
+    <div style={{ padding: '20px' }}>
       <h2>Send Message to Doctors</h2>
       <textarea
         value={message}
