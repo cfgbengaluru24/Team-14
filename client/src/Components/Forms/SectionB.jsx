@@ -1,12 +1,9 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import '../../styles/HealthForm.css';
 
-const SectionB= () => {
-  const [formData, setFormData] = useState({
-    images: null,
-    files: null,
-  });
+const SectionB = ({ formData, setFormData,visibility,setVisibility }) => {
+  const navigate = useNavigate();
 
   const handleFileChange = (e) => {
     const { name, files } = e.target;
@@ -14,21 +11,17 @@ const SectionB= () => {
       ...formData,
       [name]: files,
     });
-    };
-    
-  const navigate = useNavigate();
+  };
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log(formData);
-      // Add form submission logic here
-      
-      navigate("/form/sectionc");
-    };
-    
-    const handlePageChange = () => {
-       navigate('/form/sectiona');
-    };
+    //change visibility
+    setVisibility('c');
+  };
+
+  const handlePageChange = () => {
+    setVisibility('a');
+  };
 
   return (
     <form onSubmit={handleSubmit}>
@@ -41,7 +34,7 @@ const SectionB= () => {
         <input type="file" name="files" onChange={handleFileChange} multiple />
       </div>
       <button type="submit">Next</button>
-      <button onClick={handlePageChange}>Prev</button>
+      <button type="button" onClick={handlePageChange}>Prev</button>
     </form>
   );
 };

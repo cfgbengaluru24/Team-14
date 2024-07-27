@@ -1,15 +1,9 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import '../../styles/HealthForm.css';
 
-const SectionA = () => {
-  const [formData, setFormData] = useState({
-    name: '',
-    age: '',
-    bloodGroup: '',
-    contact: '',
-    address: '',
-  });
+const SectionA = ({ formData, setFormData,visibility,setVisibility }) => {
+  const navigate = useNavigate();
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -17,16 +11,12 @@ const SectionA = () => {
       ...formData,
       [name]: value,
     });
-    };
-    
-  const navigate = useNavigate();
+  };
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log(formData);
-      // Add form submission logic here
     
-    navigate('/form/sectionb');
+    setVisibility('b');
   };
 
   return (
