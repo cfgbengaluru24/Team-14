@@ -1,23 +1,15 @@
-<<<<<<< HEAD
 import React from 'react'
 import HealthForm from './Forms/HealthForm'
-
-=======
-import React from 'react';
-import HealthForm from './Forms/HealthForm';
 import { Link } from 'react-router-dom';
 import Button_comp from './Button_comp';
 import '../styles/Home.css';
 import SuperAdmin from './SuperAdmin';
 import PatientInfo from './PatientInfo';
->>>>>>> 9feb25ecf4cd0bfee9922989ad57462d209465f7
 
 export default function Home({ userDetails }) {
   return (
     <>
-<<<<<<< HEAD
       Home
-=======
       {userDetails.isAdmin && (
         <div>
           <div className="button-container">
@@ -32,7 +24,6 @@ export default function Home({ userDetails }) {
         
         
       )}
->>>>>>> 9feb25ecf4cd0bfee9922989ad57462d209465f7
     </>
   );
 }

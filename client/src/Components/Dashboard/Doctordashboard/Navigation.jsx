@@ -1,7 +1,10 @@
 import React from 'react';
 import {Link} from 'react-router-dom';
 
-const Navigation = () => {
+
+
+const Navigation = ({userDetails}) => {
+
   return (
     <div className="navigation">
       <ul>
@@ -15,7 +18,11 @@ const Navigation = () => {
         <li>
           <a href="#">
             
-            <span className="title">Available Doctors</span>
+            <Link to={`/doctorPortal/${userDetails.name}`}>
+              <button>
+                Show Appointments
+              </button>
+            </Link>
           </a>
         </li>
         

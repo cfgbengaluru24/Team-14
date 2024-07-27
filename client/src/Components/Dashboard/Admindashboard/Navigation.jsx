@@ -2,6 +2,7 @@ import React from 'react';
 import {Link} from 'react-router-dom';
 
 const Navigation = () => {
+
   return (
     <div className="navigation">
       <ul>
@@ -14,7 +15,6 @@ const Navigation = () => {
         </li>
         <li>
           <a href="#">
-            
             <span className="title">Available Doctors</span>
           </a>
         </li>
@@ -26,7 +26,7 @@ const Navigation = () => {
         </li>
         <li>
          
-          <Link to='/Admindashboard/Analysis'>
+          <Link to='/'>
             <span className="title">Allocation of Doctors</span>
             </Link>
         </li>
@@ -35,6 +35,9 @@ const Navigation = () => {
             <Link to ='/Admindashboard/AdminMessaging'>
             <span className="title">Message</span>
             </Link>
+        </li>
+        
+        <li>
         </li>
       </ul>
     </div>

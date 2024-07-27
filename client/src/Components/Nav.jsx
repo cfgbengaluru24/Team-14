@@ -53,11 +53,8 @@ const Nav = ({isloggedIn,userDetails,setUserDetails,setIsloggedIn,loggedIn}) => 
       </div>
       {/* <HambergerMenu/> */}
       <div ref={divRef} className='cursor-pointer'>
-<<<<<<< HEAD
         <img className='h-[30px]' src="" alt="" onClick={handleProfile} />
-=======
         {/* <img className='h-[30px]' src={profile} alt="" onClick={handleProfile} /> */}
->>>>>>> 9feb25ecf4cd0bfee9922989ad57462d209465f7
           <div className={classNames("absolute right-6 top-12 h-fit w-[300px] bg-gray-200 flex flex-col transition-opacity duration-500 ease-in-out opacity-100 z-10 rounded-xl p-4",{"hidden": !visibleProfile,
             "opacity-100": visibleProfile,
           })}>
