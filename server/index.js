@@ -4,6 +4,7 @@ import mongoose from "mongoose";
 import cors from "cors"
 import cookieParser from "cookie-parser";
 import authRoute from "./routes/AuthRoute.js"
+import rbskRoutes from "./routes/rbskRoutes.js";
 
 const app = express();
 dotenv.config();
@@ -26,7 +27,7 @@ app.use(express.json())
 
 // routes
 app.use("/api/auth", authRoute)
-
+app.use('/api', rbskRoutes);
 
 app.get("/", (req,res)=>{
     res.send("Success")
