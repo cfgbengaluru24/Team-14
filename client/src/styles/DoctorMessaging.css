@@ -1,0 +1,29 @@
+/* src/styles/ViewMessages.css */
+.messages-container {
+    padding: 20px;
+    font-family: Arial, sans-serif;
+  }
+  
+  .messages-container h2 {
+    margin-bottom: 20px;
+  }
+  
+  .messages-container ul {
+    list-style-type: none;
+    padding: 0;
+  }
+  
+  .messages-container li {
+    background-color: #f9f9f9;
+    margin-bottom: 10px;
+    padding: 15px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+  }
+  
+  .messages-container li small {
+    display: block;
+    margin-top: 10px;
+    color: #888;
+  }
+  
