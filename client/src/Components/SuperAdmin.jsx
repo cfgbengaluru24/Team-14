@@ -1,11 +1,14 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import '../styles/SuperAdmin.css';
+import DatePicker from 'react-datepicker';
+import 'react-datepicker/dist/react-datepicker.css';
 
 const SuperAdmin = () => {
   const [locations, setLocations] = useState([]);
   const [doctors, setDoctors] = useState([]);
   const [assignments, setAssignments] = useState({});
+  const [dates, setDates] = useState({});
 
   useEffect(() => {
     // Fetch locations from the API
@@ -19,7 +22,12 @@ const SuperAdmin = () => {
   }, []);
 
   const handleAssignDoctor = (locationName, doctorName) => {
-    setAssignments({ ...assignments, [locationName]: doctorName });
+    setAssignments(prev => ({ ...prev, [locationName]: { ...prev[locationName], doctorName }}));
+  };
+
+  const handleDateChange = (locationName, date) => {
+    setDates(prev => ({ ...prev, [locationName]: date }));
+    setAssignments(prev => ({ ...prev, [locationName]: { ...prev[locationName], startDate: date }}));
   };
 
   const handleSubmit = () => {
@@ -39,7 +47,7 @@ const SuperAdmin = () => {
         <div key={location._id} className="card">
           <h2>{location.centreName}</h2>
           <select
-            value={assignments[location.centreName] || ''}
+            value={assignments[location.centreName]?.doctorName || ''}
             onChange={(e) => handleAssignDoctor(location.centreName, e.target.value)}
           >
             <option value="">Select Doctor</option>
@@ -49,17 +57,22 @@ const SuperAdmin = () => {
               </option>
             ))}
           </select>
+          <DatePicker 
+            selected={dates[location.centreName] || new Date()} 
+            onChange={(date) => handleDateChange(location.centreName, date)} 
+            dateFormat="dd/MM/yyyy"
+            className="form-control"
+          />
         </div>
       ))}
       <div className='flex-col'>
         <button onClick={handleSubmit} className="submit-button">
           Submit Assignments
         </button>
-        <button onClick={handleSubmit} className="submit-button">
+        <button className="submit-button">
           Cancel
         </button>
       </div>
-      
     </div>
   );
 };

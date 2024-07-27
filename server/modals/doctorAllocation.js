@@ -9,6 +9,10 @@ const doctorAllocationSchema = new mongoose.Schema({
   doctorName: {
     type: String,
     required: true
+  },
+  date: {
+    type: Date,
+    required: true
   }
 });
 
