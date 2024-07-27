@@ -39,10 +39,9 @@ const Navigation = ({userDetails}) => {
             </Link>
         </li>
         <li>
-          <a href="#">
-           
-            <span className="title">Help</span>
-          </a>
+            <Link to ='/Form/LocationSelection'>
+            <span className="title">Location Choice</span>
+            </Link>
         </li>
         <li>
           <a href="#">

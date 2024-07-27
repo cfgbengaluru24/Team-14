@@ -26,12 +26,14 @@ const Navigation = () => {
         </li>
         <li>
          
-          <Link to='/'>
-            <span className="title">Allocation of Doctors</span>
+            <Link to='/Admindashboard/Analysis'>
+              <span className="title">Allocation of Doctors</span>
             </Link>
-          <Link to='/Admindashboard/Analysis'>
-            <span className="title">Individual Analysis</span>
-          </Link>
+        </li>
+        <li>
+            <Link to='/'>
+              <span className="title">Individual Analysis</span>
+            </Link>
         </li>
         <li>
          

@@ -84,7 +84,6 @@ const HealthForm = () => {
       {visibility === 'a' && <SectionA formData={formData} setFormData={setFormData} visibility={visibility} setVisibility={handleVisibility} />}
       {visibility === 'b' && <SectionB formData={formData} setFormData={setFormData} visibility={visibility} setVisibility={handleVisibility} />}
       {visibility === 'c' && <SectionC formData={formData} setFormData={setFormData} handleFinalSubmit={handleFinalSubmit} visibility={visibility} setVisibility={handleVisibility} />}
-      <PatientInfo />
       <LineGraph patientName={formData.name} />
     </>
   );
