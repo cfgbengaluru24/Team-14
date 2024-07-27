@@ -10,14 +10,14 @@ const ManageDoctors = () => {
 
   useEffect(() => {
    
-    axios.get('http://localhost:3001/doctors/')
+    axios.get('http://localhost:3001/doctors')
       .then(res => setDoctors(res.data))
       .catch(err => console.log(err));
   }, []);
 
   const addDoctor = () => {
     if (newDoctor.name && newDoctor.location) {
-      axios.post('http://localhost:3001/doctors/', newDoctor)
+      axios.post('http://localhost:3001/doctors', newDoctor)
         .then(res => {
           setDoctors([...doctors, res.data]);
           setNewDoctor({ name: '', location: '', available: true });

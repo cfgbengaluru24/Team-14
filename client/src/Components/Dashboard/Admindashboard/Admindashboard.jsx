@@ -5,13 +5,13 @@ import AdminMessaging from './AdminMessaging';
 
 const AdminDashboard = () => {
   return (
-    <div className="container">
-      <Navigation />
-     
-      <div className="main">
-      <AdminMessaging/>
-        <div className="details">
-         
+    <div style={{ height: 'calc(99vh - 10px)' }}>
+      <div className="container-dashboard">
+        <Navigation />
+      
+        <div className="main">
+        <AdminMessaging/>
+          
         </div>
       </div>
     </div>

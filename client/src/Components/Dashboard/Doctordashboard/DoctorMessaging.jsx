@@ -7,7 +7,7 @@ const ViewMessages = () => {
   const [messages, setMessages] = useState([]);
 
   useEffect(() => {
-    axios.get('http://localhost:3001/doctor-messages')
+    axios.get('http://localhost:3001/messages')
       .then(res => setMessages(res.data))
       .catch(err => console.log(err));
   }, []);

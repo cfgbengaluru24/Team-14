@@ -5,7 +5,8 @@ import Navigation from './Navigation';
 
 function Doctordashboard  ({ doctorName }) {
   return (
-    <div className="container">
+    <div style={{ height: 'calc(99vh - 10px)' }}>
+    <div className="container-dashboard">
       <Navigation/>
      
       <div className="main">
@@ -14,6 +15,7 @@ function Doctordashboard  ({ doctorName }) {
          
         </div>
       </div>
+    </div>
     </div>
   );
 };

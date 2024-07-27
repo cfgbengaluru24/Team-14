@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import '../styles/Doctor.css'; // Import the CSS file
-
+import '../styles/Doctor.css'; 
 function Doctor() {
   const [locations, setLocations] = useState([]);
   const [selectedLocation, setSelectedLocation] = useState('');
