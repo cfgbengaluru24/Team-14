@@ -2,19 +2,19 @@ import React from 'react';
 import {Link} from 'react-router-dom';
 
 const Navigation = () => {
+
   return (
     <div className="navigation">
       <ul>
         
         <li>
-          <a href="#">
+          <a href="/">
             
             <span className="title">home</span>
           </a>
         </li>
         <li>
           <a href="#">
-            
             <span className="title">Available Doctors</span>
           </a>
         </li>
@@ -26,9 +26,14 @@ const Navigation = () => {
         </li>
         <li>
          
-          <Link to='/Admindashboard/Analysis'>
-            <span className="title">Individual Analysis</span>
-          </Link>
+            <Link to='/Admindashboard/Analysis'>
+              <span className="title">Allocation of Doctors</span>
+            </Link>
+        </li>
+        <li>
+            <Link to='/'>
+              <span className="title">Individual Analysis</span>
+            </Link>
         </li>
         <li>
          
@@ -36,6 +41,7 @@ const Navigation = () => {
             <span className="title">Message</span>
             </Link>
         </li>
+        
         <li>
          
             <Link to ='/Form/LocationSelection'>

@@ -41,6 +41,14 @@ const SectionA = ({ formData, setFormData,visibility,setVisibility }) => {
         <label>Address:</label>
         <textarea name="address" value={formData.address} onChange={handleChange} />
       </div>
+      <div>
+        <label>Oral Index:</label>
+        <input type="number" name="oral" value={formData.oral} onChange={handleChange} />
+      </div>
+      <div>
+        <label>Haemoglobin index:</label>
+        <input type="number" name="haemo" value={formData.haemo} onChange={handleChange} />
+      </div>
       <button type="submit">Next</button>
     </form>
   );

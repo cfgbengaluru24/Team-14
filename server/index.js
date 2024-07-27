@@ -8,6 +8,7 @@ import authRoute from "./routes/AuthRoute.js"
 import rbskRoutes from "./routes/rbskRoutes.js";
 import doctorRoute from "./routes/doctorRoute.js"
 import formRoutes from './routes/formRoutes.js';
+import excelRoutes from './routes/excelRoutes.js';
 import addDoctor from './routes/Adddoctor.js';
 import messageRoutes from "./routes/MessageRoute.js";
 
@@ -37,6 +38,7 @@ app.use("/api/auth", authRoute)
 app.use('/api', rbskRoutes);
 app.use('/api/doctor', doctorRoute);
 app.use('/api', formRoutes);
+app.use('/api', excelRoutes);
 app.use('/doctors', addDoctor);
 app.use('/messages', messageRoutes);
 
