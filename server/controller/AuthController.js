@@ -39,13 +39,13 @@ export const signup = async (req,res,next) => {
         console.log(newUser);
 
         const token = await newUser.generateAuthToken();
-        // console.log(token)
+        // console.log("token: ",token);
         res.cookie("jwt",token,{
-            // expires:new Date(Date.now() + 10000),
+            expires:new Date(Date.now() + 3600000),
             httpOnly:true,
-            // secure:true
+            secure:true
         })
-        // console.log(cookie)
+        // console.log("cookie: ",cookie)
 
         await newUser.save();
         console.log("User Created Successfully")

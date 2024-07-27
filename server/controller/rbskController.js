@@ -35,10 +35,12 @@ export const assignDoctors = async (req, res) => {
       const assignments = req.body.assignments;
       const allocationPromises = Object.keys(assignments).map(async locationName => {
         const location = await Rbsk.findOne({ centreName: locationName });
-        const doctorName = assignments[locationName];
+        const {doctorName, startDate } = assignments[locationName];
+        
         const doctorAllocation = new DoctorAllocation({
           locationId: location._id,
-          doctorName: doctorName
+          doctorName: doctorName,
+          date: new Date(startDate)
         });
         await doctorAllocation.save();
       });
