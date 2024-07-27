@@ -28,12 +28,18 @@ const Navigation = () => {
          
           <Link to='/Admindashboard/Analysis'>
             <span className="title">Individual Analysis</span>
-            </Link>
+          </Link>
         </li>
         <li>
          
             <Link to ='/Admindashboard/AdminMessaging'>
             <span className="title">Message</span>
+            </Link>
+        </li>
+        <li>
+         
+            <Link to ='/Form/LocationSelection'>
+            <span className="title">Location Choice</span>
             </Link>
         </li>
         <li>

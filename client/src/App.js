@@ -15,12 +15,14 @@ import Doctordashboard from './Components/Dashboard/Doctordashboard/Doctordashbo
 import AdminMessaging from './Components/Dashboard/Admindashboard/AdminMessaging.jsx';
 import DoctorMessaging from './Components/Dashboard/Doctordashboard/DoctorMessaging.jsx';
 import Rbsk from './Components/Rbsk';
+import LocationSelection from './Components/Forms/LocationSelection.jsx';
 
 
 import SuperAdmin from './Components/SuperAdmin';
 import { useEffect, useState } from 'react';
 import Signup from './Components/Signup';
 import Login from './Components/Login';
+import PatientInfo from './Components/PatientInfo.jsx';
 
 export default function App() {
 
@@ -60,7 +62,10 @@ export default function App() {
           <Route path="/DoctorDashboard/DoctorMessaging" element={<DoctorMessaging/>}/>
           <Route path="/AdminDashboard/ManageDoctor" element={<ManageDoctors/>}/>
           <Route path="/AdminDashboard/Analysis" element={<Analysis/>}/>
-          <Route path="/superadmin" element={<SuperAdmin/>} />
+          <Route path="/superadmin" element={<SuperAdmin />} />
+          <Route path="/Form/LocationSelection" element={<LocationSelection />} />
+          <Route path="/Form/PatientInfo" element={<PatientInfo />} />
+          <Route path="/Form/HealthForm" element={<HealthForm/>} />
           <Route path="/rbsk" element={<Rbsk/>} />
           <Route path="/login" element={<Login setLoginUser={setLoginUser} setIsloggedIn={setIsloggedIn}/>}/>
           <Route path="/signup" element={<Signup setLoginUser={setLoginUser}/>}/>

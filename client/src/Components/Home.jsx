@@ -6,8 +6,7 @@ export default function Home() {
 
   return (
     <>
-      <HealthForm />
-      <PatientInfo/>
+      <div>This is the Home Page!</div>
     </>
     
   )
