@@ -56,9 +56,9 @@ const HealthForm = () => {
 
   return (
     <>
-          {visibility === 'a' ? <SectionA formData={formData} setFormData={setFormData} visibility={visibility} setVisibility={handleVisibility} /> : null};
-          {visibility === 'b' ? <SectionB formData={formData} setFormData={setFormData} visibility={visibility} setVisibility={handleVisibility} /> : null};
-          {visibility === 'c' ? <SectionC formData={formData} setFormData={setFormData} handleFinalSubmit={handleFinalSubmit} visibility={visibility} setVisibility={handleVisibility} /> : null};
+          {visibility === 'a' ? <SectionA formData={formData} setFormData={setFormData} visibility={visibility} setVisibility={handleVisibility} /> : null}
+          {visibility === 'b' ? <SectionB formData={formData} setFormData={setFormData} visibility={visibility} setVisibility={handleVisibility} /> : null}
+          {visibility === 'c' ? <SectionC formData={formData} setFormData={setFormData} handleFinalSubmit={handleFinalSubmit} visibility={visibility} setVisibility={handleVisibility} /> : null}
     </>
   );
 };
