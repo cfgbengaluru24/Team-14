@@ -30,17 +30,25 @@ const HealthForm = () => {
 
   const handleFinalSubmit = async (e) => {
     e.preventDefault();
-    console.log("formData",formData);
-
+  
+    const formDataToSend = new FormData();
+  
+    for (const key in formData) {
+      if (key === 'images' || key === 'files') {
+        for (let i = 0; i < formData[key].length; i++) {
+          formDataToSend.append(key, formData[key][i]);
+        }
+      } else {
+        formDataToSend.append(key, formData[key]);
+      }
+    }
+  
     try {
-      const response = await fetch('/patientInfo', {
+      const response = await fetch('http://localhost:3001/api/patientInfo', {
         method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(formData),
+        body: formDataToSend,
       });
-
+  
       if (response.ok) {
         console.log('Data successfully submitted');
       } else {
@@ -50,6 +58,7 @@ const HealthForm = () => {
       console.error('Error submitting data', error);
     }
   };
+  
   
   const navigate = useNavigate();
     
