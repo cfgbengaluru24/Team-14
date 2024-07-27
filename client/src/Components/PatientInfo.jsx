@@ -1,11 +1,16 @@
 import React, { useState, useEffect, useCallback } from 'react';
 import '../styles/PatientInfo.css';
+import { useLocation, useNavigate } from "react-router-dom";
 
 const PatientInfo = () => {
   const [patients, setPatients] = useState([]);
   const [page, setPage] = useState(1);
   const [loading, setLoading] = useState(false);
   const [hasMore, setHasMore] = useState(true);
+
+  const location = useLocation();
+  const { state } = location;
+  const { state: selectedState, city, school } = state || {};
 
   const fetchPatients = async (page) => {
     setLoading(true);
@@ -31,6 +36,11 @@ const PatientInfo = () => {
     setPage(prevPage => prevPage + 1);
   }, [loading]);
 
+  const navigate = useNavigate();
+  const handleClick = () => {
+    navigate("/Form/HealthForm");
+  }
+
   useEffect(() => {
     fetchPatients(page);
   }, [page]);
@@ -41,7 +51,12 @@ const PatientInfo = () => {
   }, [handleScroll]);
 
   return (
-    <div className="patient-info-container">
+    <>
+      <div style={{display:'flex',justifyContent:'space-between'}}>
+        <h3 style={{ padding: "20px" }}>Patient details:</h3>
+        <button onClick={handleClick} style={{height:"35px",width:"35px", borderRadius:"50%"}}>&#43;</button>
+      </div>
+      <div className="patient-info-container">
       {patients.length === 0 ? (
         <div className="patient-card demo-card">
           <h2>Bipradeep Bera</h2>
@@ -84,7 +99,8 @@ const PatientInfo = () => {
       )}
       {loading && <div className="loading">Loading...</div>}
       {!hasMore && <div className="end-of-cards">No more patients</div>}
-    </div>
+    </div> 
+  </>
   );
 };
 
