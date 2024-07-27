@@ -1,15 +1,14 @@
-import React from 'react'
-import HealthForm from './Forms/HealthForm'
-import PatientInfo from './PatientInfo';
+import React from 'react';
+import Lander from './Lander';
+import '../styles/home.css';
+
+
 
 export default function Home() {
-
   return (
-    <>
-      <HealthForm />
-      <PatientInfo/>
-    </>
-    
-  )
+    <div className="home-container">
+      
+      <Lander />
+    </div>
+  );
 }
-

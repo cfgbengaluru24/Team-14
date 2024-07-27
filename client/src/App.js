@@ -12,6 +12,8 @@ import SuperAdmin from './Components/SuperAdmin';
 import { useEffect, useState } from 'react';
 import Signup from './Components/Signup';
 import Login from './Components/Login';
+import Donate from './Components/Donate.jsx';
+import Success from './Components/Success.jsx';
 
 export default function App() {
 
@@ -29,15 +31,15 @@ export default function App() {
       setUserDetails({});
     }
   },[])
-
-
   return (
      <BrowserRouter>
       <div className="App">
-        {/* <Nav/> */}
+         <Nav/> 
         {
           loggedIn? <Nav isloggedIn={isloggedIn} userDetails={userDetails} setUserDetails={setUserDetails} setIsloggedIn={setIsloggedIn} loggedIn={loggedIn}/>:null
         }
+
+
         <Routes>
 
           <Route path="/" element={<Home />} />
@@ -46,6 +48,8 @@ export default function App() {
           <Route path="/form/sectionc" element={<SectionC /> } />
           <Route path="/superadmin" element={<SuperAdmin/>} />
           <Route path="/rbsk" element={<Rbsk/>} />
+          <Route path="/Donate" element={<Donate/>}/>
+          <Route path="/Success" element={<Success/>}/>
           <Route path="/login" element={<Login setLoginUser={setLoginUser} setIsloggedIn={setIsloggedIn}/>}/>
           <Route path="/signup" element={<Signup setLoginUser={setLoginUser}/>}/>
 

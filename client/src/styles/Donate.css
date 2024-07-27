@@ -1,0 +1,183 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,100..700;1,100..700&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Roboto Mono", monospace;
+}
+
+body {
+  background-color: #f5f5f5;
+  color: #333;
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+  background-color: #fff;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.navbar h1 {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #4a90e2;
+}
+
+.navbar ul {
+  display: flex;
+  list-style-type: none;
+}
+
+.navbar li {
+  margin-left: 2rem;
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
+
+.navbar li:hover {
+  color: #4a90e2;
+}
+
+.payment {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 4rem;
+}
+
+.payment button {
+  padding: 1rem 2rem;
+  font-size: 1.2rem;
+  background-color: #4a90e2;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.payment button:hover {
+  background-color: #3a7bc8;
+}
+
+.payment div {
+  margin-top: 2rem;
+  text-align: center;
+}
+
+.payment img {
+  max-width: 200px;
+  margin-bottom: 1rem;
+}
+
+.payment p {
+  font-size: 1rem;
+  color: #fbfbfb;
+}
+/* ... (previous CSS remains the same) ... */
+
+.recent-donors {
+  padding: 2rem;
+  background-color: #fff;
+  margin-top: 2rem;
+}
+
+.recent-donors h2 {
+  text-align: center;
+  margin-bottom: 2rem;
+  color: #4a90e2;
+}
+
+.card-container {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  gap: 2rem;
+}
+
+.card {
+  background-color: #f9f9f9;
+  border-radius: 8px;
+  padding: 1.5rem;
+  width: 280px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+}
+
+.card img {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  margin: 0 auto 1rem;
+  display: block;
+}
+
+.card .name {
+  font-size: 1.2rem;
+  font-weight: 600;
+  text-align: center;
+  margin-bottom: 0.5rem;
+}
+
+.card .time {
+  font-size: 0.9rem;
+  color: #888;
+  text-align: center;
+  margin-bottom: 1rem;
+}
+
+.card .amount {
+  font-size: 1.1rem;
+  text-align: center;
+  margin-bottom: 0.5rem;
+}
+
+.card .amount span {
+  font-weight: 600;
+  color: #4a90e2;
+}
+
+.card .reason {
+  font-size: 0.9rem;
+  color: #666;
+  text-align: center;
+}
+/* ... (previous CSS remains the same) ... */
+
+.footer {
+  background-color: #f5f5f5;
+  padding: 1rem 2rem;
+  text-align: center;
+  font-size: 0.9rem;
+  color: #666;
+  margin-top: 2rem;
+  border-top: 1px solid #e0e0e0;
+}
+
+.footer p {
+  margin-bottom: 0.5rem;
+}
+
+.footer-links {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.footer-links a {
+  color: #4a90e2;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.footer-links a:hover {
+  color: #3a7bc8;
+}

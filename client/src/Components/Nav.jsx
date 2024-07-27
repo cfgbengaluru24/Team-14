@@ -1,83 +1,50 @@
-import React, { useState,useRef,useEffect } from 'react'
-// import Logo from "../assets/Logo.png"
-import { Link, useNavigate } from 'react-router-dom'
-import Button from './Button_comp'
-import profile from "../assets/profile-icon-login-img.jpg"
-import classNames from 'classnames';
-// import HambergerMenu from './HambergerMenu'
+import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
+import '../styles/home.css';
 
-const Nav = ({isloggedIn,userDetails,setUserDetails,setIsloggedIn,loggedIn}) => {
-  const navigate = useNavigate();
-  const [visibleProfile, setVisibleProfile] = useState(false);
-  const divRef = useRef(null);
-  
-  
-  // console.log(userDetails)
-    
-  const handleLogout=()=>{
-    localStorage.removeItem("isLoggedIn")
-    localStorage.removeItem("userDetails")
-    navigate("/login")
-    setUserDetails({})
-    setIsloggedIn(false)
-    setVisibleProfile(false);
-  }
-  
-  const handleLogin=()=>{
-    navigate("/login")
-    setVisibleProfile(false);
-  }
-  
-  const handleScreenClick  = (event)=>{
-    if(divRef.current && !divRef.current.contains(event.target)){
-      setVisibleProfile(false);
-    }
+const Nav = () => {
+  const [isOpen, setIsOpen] = useState(true);
+
+  const toggleMenu = () => {
+    setIsOpen(!isOpen);
   };
-  
-  const handleProfile = ()=>{
-    setVisibleProfile(!visibleProfile)
-  }
-  
-  useEffect(()=>{
-    document.addEventListener('click',handleScreenClick );
-    return ()=>{
-      document.removeEventListener('click',handleScreenClick );
-    };
-  },[]);
-  
-  
+
   return (
-    <div className='w-full flex items-center justify-center bg-blue-50'>
-    <div className='w-11/12 flex justify-between items-center'>
-      <div>
-        {/* <img className='h-[50px]' src={Logo} alt="Logo" /> */}
+    <nav className="nav-container">
+      <div className="nav-content">
+        <div className="nav-brand">
+          <h1 className="nav-title">Rohini Foundation</h1>
+          <p className="nav-subtitle">Right to Oral Healthy Society</p>
+        </div>
+        <div className={`nav-links ${isOpen ? 'open' : ''}`}>
+          <Link to="/" className="nav-link">Home</Link>
+          <Link to="/about-us" className="nav-link">About Us</Link>
+          <Link to="/projects" className="nav-link">Projects</Link>
+          <Link to="/gallery" className="nav-link">Gallery</Link>
+          <Link to="/Success" className="nav-link">Testimonials</Link>
+          <Link to="/contact" className="nav-link">Contact</Link>
+        </div>
+        <Link to="/Donate"><button className="nav-donate">Donate Now</button></Link>
+        <button className="nav-toggle" onClick={toggleMenu}>
+          <svg className="nav-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d={isOpen ? "M6 18L18 6M6 6l12 12" : "M4 6h16M4 12h16M4 18h16"}></path>
+          </svg>
+        </button>
       </div>
-      {/* <HambergerMenu/> */}
-      <div ref={divRef} className='cursor-pointer'>
-        <img className='h-[30px]' src={profile} alt="" onClick={handleProfile} />
-          <div className={classNames("absolute right-6 top-12 h-fit w-[300px] bg-gray-200 flex flex-col transition-opacity duration-500 ease-in-out opacity-100 z-10 rounded-xl p-4",{"hidden": !visibleProfile,
-            "opacity-100": visibleProfile,
-          })}>
-              {
-                loggedIn?
-                <div className='font-semibold font-sans'>
-                  <h2 className='mb-2'>HELLO!</h2>
-                  {userDetails.userType} : {userDetails.name}
-                  <p>{userDetails.email}</p>
-                  
-                  <div onClick={handleLogout} className='w-full flex items-center justify-center mt-4'> 
-                    <Button btn="Logout" />
-                  </div>
-                </div>:
-                <div onClick={handleLogin} className='w-full flex items-center justify-center'> 
-                  <Button btn="Login" />
-                </div>
-              }
-          </div>
-      </div>
-      </div>
-    </div>
-  )
+      {isOpen && (
+        <div className="nav-mobile-menu">
+          <Link to="/" className="nav-mobile-link">Home</Link>
+          <Link to="/about-us" className="nav-mobile-link">About Us</Link>
+          <Link to="/projects" className="nav-mobile-link">Projects</Link>
+          <Link to="/gallery" className="nav-mobile-link">Gallery</Link>
+          <Link to="/testimonials" className="nav-mobile-link">Testimonials</Link>
+          <Link to="/contact" className="nav-mobile-link">Contact</Link>
+          <button className="nav-mobile-donate">Donate Now</button>
+        </div>
+      )}
+    </nav>
+  );
 }
 
-export default Nav
+export default Nav;
+
