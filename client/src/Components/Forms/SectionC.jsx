@@ -1,17 +1,9 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import '../../styles/HealthForm.css';
 
-const SectionC = () => {
-  const [formData, setFormData] = useState({
-    plague: '',
-    dentalCavity: '',
-    diabetesRisk: '',
-    anaemiaRisk: '',
-    dentalHealth: '',
-    diagnosis: '',
-    medicines: ''
-  });
+const SectionC = ({ formData, setFormData, handleFinalSubmit,visibility,setVisibility }) => {
+  const navigate = useNavigate();
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -21,19 +13,12 @@ const SectionC = () => {
     });
   };
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    console.log(formData);
-    // Add form submission logic here
-    };
-    
-    const navigate = useNavigate();
-    const handlePageChange = () => {
-        navigate('/form/sectionb');
-    };
+  const handlePageChange = () => {
+    setVisibility('b');
+  };
 
   return (
-    <form onSubmit={handleSubmit}>
+    <form onSubmit={handleFinalSubmit}>
       <div>
         <label>Is there any plague?</label>
         <select name="plague" value={formData.plague} onChange={handleChange}>
@@ -63,6 +48,10 @@ const SectionC = () => {
         </select>
       </div>
       <div>
+        <label>Dental Health Details:</label>
+        <textarea name="dentalHealth" value={formData.dentalHealth} onChange={handleChange} />
+      </div>
+      <div>
         <label>Diagnosis:</label>
         <textarea name="diagnosis" value={formData.diagnosis} onChange={handleChange} />
       </div>
@@ -70,9 +59,8 @@ const SectionC = () => {
         <label>Prescribed Medicines:</label>
         <textarea name="medicines" value={formData.medicines} onChange={handleChange} />
       </div>
-      
       <button type="submit">Submit</button>
-      <button onClick={handlePageChange}> Prev</button> 
+      <button type="button" onClick={handlePageChange}>Prev</button>
     </form>
   );
 };

@@ -1,6 +1,7 @@
 import Home from './Components/Home';
 import Nav from './Components/Nav';
 import Footer from './Components/Footer';
+import HealthForm from './Components/Forms/HealthForm';
 import SectionA from "./Components/Forms/SectionA.jsx";
 import SectionB from "./Components/Forms/SectionB.jsx";
 import SectionC from "./Components/Forms/SectionC.jsx";
