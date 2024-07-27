@@ -1,4 +1,5 @@
 import React from 'react';
+import '../styles/Footer.css';;
 import '../styles/home.css';
 
 const data = [
@@ -9,6 +10,8 @@ const data = [
 ];
 
 const Footer = ({ theme = "dark" }) => {
+  const currentYear = new Date().getFullYear();
+
   return (
     <div className={`footer-container ${theme}`}>
       <div className="footer-content">
@@ -38,7 +41,7 @@ const Footer = ({ theme = "dark" }) => {
         </div>
       </div>
       <div className={`footer-bottom ${theme}`}>
-        &copy; 2020 Your Company, Inc. All rights reserved
+        &copy; {{currentYear}} Your Company, Inc. All rights reserved
       </div>
     </div>
   );

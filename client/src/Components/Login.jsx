@@ -3,6 +3,11 @@ import axios from 'axios';
 import { Link, useNavigate, NavLink } from 'react-router-dom';
 import { AiFillEye, AiFillEyeInvisible } from 'react-icons/ai';
 import { toast } from 'react-hot-toast';
+import React, { useState, useRef, useEffect } from 'react';
+import axios from 'axios';
+import { Link, useNavigate, NavLink } from 'react-router-dom';
+import { AiFillEye, AiFillEyeInvisible } from 'react-icons/ai';
+import { toast } from 'react-hot-toast';
 import { APIURL } from '../env';
 import '../styles/Login.css';
 
@@ -14,12 +19,12 @@ const Login = ({ setLoginUser, setIsloggedIn }) => {
     const [success, setSuccess] = useState(false);
     const [isClicked, setIsClicked] = useState(false);
 
-    const navigate = useNavigate();
+  const navigate = useNavigate();
 
-    const [user, setUser] = useState({
-        email: "",
-        password: ""
-    });
+  const [user, setUser] = useState({
+    email: '',
+    password: ''
+  });
 
     useEffect(() => {
         userRef.current.focus();

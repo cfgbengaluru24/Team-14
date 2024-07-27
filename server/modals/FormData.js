@@ -6,6 +6,8 @@ const formDataSchema = new mongoose.Schema({
   bloodGroup: String,
   contact: String,
   address: String,
+  oral: Number,
+  haemo: Number,
   images: [String],
   files: [String],
   plague: String,

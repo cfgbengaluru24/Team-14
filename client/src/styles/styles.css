@@ -1,0 +1,130 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+
+.container-dashboard {
+
+    position: relative;
+    width: 100%;
+    display: contents;
+}
+
+.navigation {
+
+    position: absolute;
+    top:0;
+    width: 300px;
+    height: 97%;
+    background-image: linear-gradient(45deg, rgb(156, 0, 96), rgb(244, 29, 165), rgb(235, 212, 216));
+    border-left: 10px solid rgba(255, 24, 170, 0.655);
+    transition: 0.5s;
+    overflow: hidden;
+
+}
+
+.navigation.active {
+
+    width: 70px;
+
+}
+
+.navigation ul {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+
+}
+
+.navigation ul li {
+    position: relative;
+    width: 100%;
+    list-style: none;
+
+}
+
+.navigation ul li:not(:first-child):hover {
+    background-color: white;
+    width: 100%;
+    border-top-left-radius: 50px;
+    border-bottom-left-radius: 50px;
+}
+
+.navigation ul li:nth-child(1) {
+    margin-bottom: 40px;
+}
+
+
+.navigation ul li a {
+    position: relative;
+
+    width: 100%;
+    display: flex;
+    text-decoration: none;
+    color: white;
+    align-items: center;
+}
+
+.navigation ul li:not(:first-child):hover a {
+    color: rgb(249, 36, 185);
+}
+
+.navigation ul li a .icon {
+    padding: 15px;
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.navigation ul li a .icon ion-icon {
+    font-size: 1.75em;
+}
+
+.navigation ul li a .title {
+
+    display: relative;
+    padding: 15px;
+}
+
+.navigation ul li:not(:first-child):hover a::before {
+    content: '';
+    position: absolute;
+    right: 0;
+    width: 50px;
+    height: 50px;
+    top: -50px;
+
+    border-radius: 50%;
+    box-shadow: 35px 35px 0 10px white;
+}
+
+.navigation ul li:not(:first-child):hover a::after {
+    content: '';
+    position: absolute;
+    right: 0;
+    width: 50px;
+    height: 50px;
+    bottom: -50px;
+
+    border-radius: 50%;
+    box-shadow: 35px -35px 0 10px white;
+}
+
+.main {
+    position: absolute;
+    width:calc( 100%-300px);
+    left: 300px;
+    background: white;
+    min-height: 100vh;
+    transition: 0.5s;
+}
+
+.main.active {
+    left: 70px;
+    
+}
+
