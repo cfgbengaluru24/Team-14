@@ -11,12 +11,11 @@ import Doctor from './Components/Doctor';
 import AdminDashboard from './Components/Dashboard/Admindashboard/Admindashboard';
 import ManageDoctors from './Components/Dashboard/Admindashboard/ManageDoctors';
 import Analysis from './Components/Dashboard/Admindashboard/Analysis';
-
+import LocationAnalysis from './Components/Dashboard/Doctordashboard/LocationAnalysis';
 import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
 import Doctordashboard from './Components/Dashboard/Doctordashboard/Doctordashboard.jsx';
 import AdminMessaging from './Components/Dashboard/Admindashboard/AdminMessaging.jsx';
 import DoctorMessaging from './Components/Dashboard/Doctordashboard/DoctorMessaging.jsx';
-import Rbsk from './Components/Rbsk';
 
 
 import SuperAdmin from './Components/SuperAdmin';
@@ -67,7 +66,8 @@ export default function App() {
           <Route path="/superadmin" element={<SuperAdmin/>} />
           <Route path="/excelupload" element={<ExcelUpload/>} />
           <Route path="/linegraph" element={<LineGraph/>} />
-          <Route path="/rbsk" element={<Rbsk/>} />
+          <Route path="/signup" element={<Signup/>} />
+          <Route path="/locationanalysis" element={<LocationAnalysis/>} />
           <Route path="/login" element={<Login setLoginUser={setLoginUser} setIsloggedIn={setIsloggedIn}/>}/>
           <Route path="/signup" element={<Signup setLoginUser={setLoginUser}/>}/>
 

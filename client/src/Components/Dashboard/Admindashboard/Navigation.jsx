@@ -7,7 +7,7 @@ const Navigation = () => {
       <ul>
         
         <li>
-          <a href="#">
+          <a href="/">
             
             <span className="title">home</span>
           </a>
@@ -27,7 +27,7 @@ const Navigation = () => {
         <li>
          
           <Link to='/Admindashboard/Analysis'>
-            <span className="title">Individual Analysis</span>
+            <span className="title">Allocation of Doctors</span>
             </Link>
         </li>
         <li>
@@ -35,24 +35,6 @@ const Navigation = () => {
             <Link to ='/Admindashboard/AdminMessaging'>
             <span className="title">Message</span>
             </Link>
-        </li>
-        <li>
-          <a href="#">
-           
-            <span className="title">Help</span>
-          </a>
-        </li>
-        <li>
-          <a href="#">
-           
-            <span className="title">Settings</span>
-          </a>
-        </li>
-        <li>
-          <a href="#">
-            
-            <span className="title">Sign Out</span>
-          </a>
         </li>
       </ul>
     </div>

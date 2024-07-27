@@ -21,8 +21,8 @@ const Navigation = () => {
         
         <li>
          
-          <Link to='/Doctordashboard/Analysis'>
-            <span className="title">Individual Analysis</span>
+          <Link to='/locationanalysis'>
+            <span className="title">Location Based Analysis</span>
             </Link>
         </li>
         <li>

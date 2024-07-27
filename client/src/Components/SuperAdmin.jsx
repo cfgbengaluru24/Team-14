@@ -69,7 +69,9 @@ const SuperAdmin = () => {
         <button onClick={handleSubmit} className="submit-button">
           Submit Assignments
         </button>
-        <button className="submit-button">
+        <button className="submit-button" onClick={()=>{
+          window.location.href = '/AdminDashboard';
+        }}>
           Cancel
         </button>
       </div>
