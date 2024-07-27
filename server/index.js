@@ -6,6 +6,7 @@ import cookieParser from "cookie-parser";
 import authRoute from "./routes/AuthRoute.js"
 import rbskRoutes from "./routes/rbskRoutes.js";
 import doctorRoute from "./routes/doctorRoute.js"
+import formRoutes from './routes/formRoutes.js';
 
 const app = express();
 dotenv.config();
@@ -30,6 +31,7 @@ app.use(express.json())
 app.use("/api/auth", authRoute)
 app.use('/api', rbskRoutes);
 app.use('/api/doctor', doctorRoute);
+app.use('/api', formRoutes);
 
 app.get("/", (req,res)=>{
     res.send("Success")
