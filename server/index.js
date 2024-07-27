@@ -5,6 +5,7 @@ import cors from "cors"
 import cookieParser from "cookie-parser";
 import authRoute from "./routes/AuthRoute.js"
 import rbskRoutes from "./routes/rbskRoutes.js";
+import formRoutes from './routes/formRoutes.js';
 
 const app = express();
 dotenv.config();
@@ -28,6 +29,7 @@ app.use(express.json())
 // routes
 app.use("/api/auth", authRoute)
 app.use('/api', rbskRoutes);
+app.use('/api', formRoutes);
 
 app.get("/", (req,res)=>{
     res.send("Success")
