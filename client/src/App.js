@@ -16,7 +16,6 @@ import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
 import Doctordashboard from './Components/Dashboard/Doctordashboard/Doctordashboard.jsx';
 import AdminMessaging from './Components/Dashboard/Admindashboard/AdminMessaging.jsx';
 import DoctorMessaging from './Components/Dashboard/Doctordashboard/DoctorMessaging.jsx';
-import Rbsk from './Components/Rbsk';
 import LocationSelection from './Components/Forms/LocationSelection.jsx';
 
 

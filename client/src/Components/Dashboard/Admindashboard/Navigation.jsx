@@ -26,15 +26,12 @@ const Navigation = () => {
         </li>
         <li>
          
-<<<<<<< HEAD
           <Link to='/'>
             <span className="title">Allocation of Doctors</span>
             </Link>
-=======
           <Link to='/Admindashboard/Analysis'>
             <span className="title">Individual Analysis</span>
           </Link>
->>>>>>> 227b3e3092abd41d14816ac7e436eae9c2ab999b
         </li>
         <li>
          
@@ -44,8 +41,6 @@ const Navigation = () => {
         </li>
         
         <li>
-<<<<<<< HEAD
-=======
          
             <Link to ='/Form/LocationSelection'>
             <span className="title">Location Choice</span>
@@ -68,7 +63,6 @@ const Navigation = () => {
             
             <span className="title">Sign Out</span>
           </a>
->>>>>>> 227b3e3092abd41d14816ac7e436eae9c2ab999b
         </li>
       </ul>
     </div>
