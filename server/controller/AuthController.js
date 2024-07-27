@@ -1,4 +1,4 @@
-import User from "../models/User.js"
+import User from "../modals/User.js"
 import bcrypt from "bcrypt"
 import { createError } from "../middleware/error.js"; 
 import dotenv from "dotenv"

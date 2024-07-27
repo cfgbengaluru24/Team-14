@@ -8,8 +8,8 @@ const SuperAdmin = () => {
   const [assignments, setAssignments] = useState({});
 
   useEffect(() => {
-    // Fetch locations from the JSON file
-    axios.get('/locations.json').then(response => {
+    // Fetch locations from the API
+    axios.get('http://localhost:3001/api/rbsks').then(response => {
       setLocations(response.data);
     });
 
@@ -33,11 +33,11 @@ const SuperAdmin = () => {
     <div className="container">
       <h1>Super Admin Page</h1>
       {locations.map(location => (
-        <div key={location.id} className="card">
-          <h2>{location.name}</h2>
+        <div key={location._id} className="card">
+          <h2>{location.centreName}</h2>
           <select
-            value={assignments[location.id] || ''}
-            onChange={(e) => handleAssignDoctor(location.id, e.target.value)}
+            value={assignments[location._id] || ''}
+            onChange={(e) => handleAssignDoctor(location._id, e.target.value)}
           >
             <option value="">Select Doctor</option>
             {doctors.map(doctor => (

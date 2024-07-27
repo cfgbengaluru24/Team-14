@@ -20,7 +20,7 @@ const Rbsk = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    axios.post('/api/rbsk', formData).then(response => {
+    axios.post('http://localhost:3001/api/rbsk', formData).then(response => {
       alert('Data submitted successfully!');
       setFormData({
         city: '',
@@ -68,7 +68,7 @@ const Rbsk = () => {
         <div className="form-group">
           <label>Priority</label>
           <input
-            type="text"
+            type="number"
             name="priority"
             value={formData.priority}
             onChange={handleChange}
