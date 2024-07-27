@@ -7,6 +7,7 @@ import authRoute from "./routes/AuthRoute.js"
 import rbskRoutes from "./routes/rbskRoutes.js";
 import doctorRoute from "./routes/doctorRoute.js"
 import formRoutes from './routes/formRoutes.js';
+import excelRoutes from './routes/excelRoutes.js';
 
 const app = express();
 dotenv.config();
@@ -32,6 +33,7 @@ app.use("/api/auth", authRoute)
 app.use('/api', rbskRoutes);
 app.use('/api/doctor', doctorRoute);
 app.use('/api', formRoutes);
+app.use('/api', excelRoutes);
 
 app.get("/", (req,res)=>{
     res.send("Success")

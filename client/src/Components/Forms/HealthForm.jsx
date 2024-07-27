@@ -3,6 +3,8 @@ import { BrowserRouter as Router, Routes, Route, Navigate, useNavigate } from 'r
 import SectionA from './SectionA';
 import SectionB from './SectionB';
 import SectionC from './SectionC';
+import PatientInfo from '../PatientInfo';
+import LineGraph from '../LineGraph';
 
 const HealthForm = () => {
   const [formData, setFormData] = useState({
@@ -19,20 +21,37 @@ const HealthForm = () => {
     anaemiaRisk: 'yes',
     dentalHealth: '',
     diagnosis: '',
-    medicines: ''
+    medicines: '',
+    oral: 0,
+    haemo: 0
   });
-    
-    const handleVisibility = (newVisibility) => {
-        setVisibilty(newVisibility);
-  }
-    
-  const [visibility, setVisibilty] = useState('a');
+
+  const [patientData, setPatientData] = useState([]);
+  const [visibility, setVisibility] = useState('a');
+
+  const handleVisibility = (newVisibility) => {
+    setVisibility(newVisibility);
+  };
+
+  const fetchPatientData = async () => {
+    try {
+      const response = await fetch('http://localhost:3001/api/patientData');
+      const data = await response.json();
+      setPatientData(data);
+    } catch (error) {
+      console.error('Error fetching patient data', error);
+    }
+  };
+
+  useEffect(() => {
+    fetchPatientData();
+  }, []);
 
   const handleFinalSubmit = async (e) => {
     e.preventDefault();
-  
+
     const formDataToSend = new FormData();
-  
+
     for (const key in formData) {
       if (key === 'images' || key === 'files') {
         for (let i = 0; i < formData[key].length; i++) {
@@ -42,15 +61,16 @@ const HealthForm = () => {
         formDataToSend.append(key, formData[key]);
       }
     }
-  
+
     try {
       const response = await fetch('http://localhost:3001/api/patientInfo', {
         method: 'POST',
         body: formDataToSend,
       });
-  
+
       if (response.ok) {
         console.log('Data successfully submitted');
+        fetchPatientData(); // Refetch data after submission
       } else {
         console.error('Error submitting data');
       }
@@ -58,16 +78,14 @@ const HealthForm = () => {
       console.error('Error submitting data', error);
     }
   };
-  
-  
-  const navigate = useNavigate();
-    
 
   return (
     <>
-          {visibility === 'a' ? <SectionA formData={formData} setFormData={setFormData} visibility={visibility} setVisibility={handleVisibility} /> : null}
-          {visibility === 'b' ? <SectionB formData={formData} setFormData={setFormData} visibility={visibility} setVisibility={handleVisibility} /> : null}
-          {visibility === 'c' ? <SectionC formData={formData} setFormData={setFormData} handleFinalSubmit={handleFinalSubmit} visibility={visibility} setVisibility={handleVisibility} /> : null}
+      {visibility === 'a' && <SectionA formData={formData} setFormData={setFormData} visibility={visibility} setVisibility={handleVisibility} />}
+      {visibility === 'b' && <SectionB formData={formData} setFormData={setFormData} visibility={visibility} setVisibility={handleVisibility} />}
+      {visibility === 'c' && <SectionC formData={formData} setFormData={setFormData} handleFinalSubmit={handleFinalSubmit} visibility={visibility} setVisibility={handleVisibility} />}
+      <PatientInfo />
+      <LineGraph patientName={formData.name} />
     </>
   );
 };
