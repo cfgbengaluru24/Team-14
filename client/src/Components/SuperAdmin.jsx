@@ -3,6 +3,8 @@ import axios from 'axios';
 import '../styles/SuperAdmin.css';
 import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
+import { APIURL } from '../env';
+import { useNavigate } from 'react-router-dom';
 
 const SuperAdmin = () => {
   const [locations, setLocations] = useState([]);
@@ -16,7 +18,8 @@ const SuperAdmin = () => {
       setLocations(response.data);
     });
 
-    axios.get('/doctors.json').then(response => {
+    axios.get(`${APIURL}/api/auth/getUsers`).then(response => {
+    // axios.get(`/doctors.json`).then(response => {
       setDoctors(response.data);
     });
   }, []);
@@ -30,10 +33,14 @@ const SuperAdmin = () => {
     setAssignments(prev => ({ ...prev, [locationName]: { ...prev[locationName], startDate: date }}));
   };
 
-  const handleSubmit = () => {
-    axios.post('http://localhost:3001/api/assign-doctors', { assignments })
+  const navigate = useNavigate();
+
+  const handleSubmit = async () => {
+    console.log(assignments)
+    await axios.post('http://localhost:3001/api/assign-doctors', { assignments })
       .then(response => {
         alert('Assignments submitted successfully!');
+        // navigate('/doctorPortal')
       })
       .catch(error => {
         console.error('There was an error submitting the assignments!', error);

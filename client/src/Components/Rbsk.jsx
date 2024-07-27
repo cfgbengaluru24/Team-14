@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import '../styles/rbsk.css';
+import { useNavigate } from 'react-router-dom';
 
 const Rbsk = () => {
   const [formData, setFormData] = useState({
@@ -18,9 +19,11 @@ const Rbsk = () => {
     });
   };
 
-  const handleSubmit = (e) => {
+  const navigate = useNavigate();
+
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    axios.post('http://localhost:3001/api/rbsk', formData).then(response => {
+    await axios.post('http://localhost:3001/api/rbsk', formData).then(response => {
       alert('Data submitted successfully!');
       setFormData({
         city: '',
@@ -29,6 +32,7 @@ const Rbsk = () => {
         priority: ''
       });
     });
+    navigate('/superadmin')
   };
 
   return (

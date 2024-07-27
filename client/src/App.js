@@ -22,7 +22,11 @@ import SuperAdmin from './Components/SuperAdmin';
 import { useEffect, useState } from 'react';
 import Signup from './Components/Signup';
 import Login from './Components/Login';
+<<<<<<< HEAD
 import LineGraph from './Components/LineGraph.jsx';
+=======
+import DoctorAppointments from './Components/DoctorAppointments.jsx';
+>>>>>>> 9feb25ecf4cd0bfee9922989ad57462d209465f7
 
 export default function App() {
 
@@ -51,7 +55,11 @@ export default function App() {
         }
         <Routes>
 
+<<<<<<< HEAD
           <Route path="/" element={<Home />} />
+=======
+          <Route path="/"  element={<Home userDetails={userDetails}/> } />
+>>>>>>> 9feb25ecf4cd0bfee9922989ad57462d209465f7
           <Route path="/form" element={<HealthForm />} />
           <Route path="/form/sectiona" element={<SectionA />} />
           <Route path="/form/sectionb" element={<SectionB />} />
@@ -64,13 +72,23 @@ export default function App() {
           <Route path="/AdminDashboard/ManageDoctor" element={<ManageDoctors/>}/>
           <Route path="/AdminDashboard/Analysis" element={<Analysis/>}/>
           <Route path="/superadmin" element={<SuperAdmin/>} />
+<<<<<<< HEAD
           <Route path="/excelupload" element={<ExcelUpload/>} />
           <Route path="/linegraph" element={<LineGraph/>} />
           <Route path="/signup" element={<Signup/>} />
           <Route path="/locationanalysis" element={<LocationAnalysis/>} />
+=======
+          {/* <Route path="/healthform" element={<HealthForm/>} /> */}
+          <Route path="/rbsk" element={<Rbsk/>} />
+>>>>>>> 9feb25ecf4cd0bfee9922989ad57462d209465f7
           <Route path="/login" element={<Login setLoginUser={setLoginUser} setIsloggedIn={setIsloggedIn}/>}/>
           <Route path="/signup" element={<Signup setLoginUser={setLoginUser}/>}/>
+          {/* <Route path="/doctorPortal" element={<DoctorAppointments userDetails={userDetails}/>}/> */}
 
+          {userDetails && !userDetails.isAdmin && (
+            <Route path="/doctorPortal/:name" element={<DoctorAppointments userDetails={userDetails} />} />
+          )}
+          
         </Routes>
         <Footer />
       </div>
