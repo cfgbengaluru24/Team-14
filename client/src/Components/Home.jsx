@@ -4,7 +4,6 @@ import { Link } from 'react-router-dom';
 import Button_comp from './Button_comp';
 import '../styles/Home.css';
 import SuperAdmin from './SuperAdmin';
-import '../styles/home.css';
 
 
 

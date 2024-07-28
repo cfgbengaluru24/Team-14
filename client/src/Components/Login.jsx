@@ -3,11 +3,7 @@ import axios from 'axios';
 import { Link, useNavigate, NavLink } from 'react-router-dom';
 import { AiFillEye, AiFillEyeInvisible } from 'react-icons/ai';
 import { toast } from 'react-hot-toast';
-import React, { useState, useRef, useEffect } from 'react';
-import axios from 'axios';
-import { Link, useNavigate, NavLink } from 'react-router-dom';
-import { AiFillEye, AiFillEyeInvisible } from 'react-icons/ai';
-import { toast } from 'react-hot-toast';
+
 import { APIURL } from '../env';
 import '../styles/Login.css';
 

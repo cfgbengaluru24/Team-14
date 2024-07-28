@@ -1,6 +1,6 @@
 import React from 'react';
-import '../styles/Footer.css';;
-import '../styles/home.css';
+import '../styles/Footer.css';
+import '../styles/Home.css';
 
 const data = [
   { title: "Solutions", list: ["Marketing", "Analytics", "Commerce", "Insights"] },
@@ -41,7 +41,7 @@ const Footer = ({ theme = "dark" }) => {
         </div>
       </div>
       <div className={`footer-bottom ${theme}`}>
-        &copy; {{currentYear}} Your Company, Inc. All rights reserved
+        Copyright &copy; {currentYear} CodeForGood24, All rights reserved.
       </div>
     </div>
   );
