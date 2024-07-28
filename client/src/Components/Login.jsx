@@ -3,15 +3,17 @@ import axios from 'axios';
 import { Link, useNavigate, NavLink } from 'react-router-dom';
 import { AiFillEye, AiFillEyeInvisible } from 'react-icons/ai';
 import { toast } from 'react-hot-toast';
+
 import { APIURL } from '../env';
 import '../styles/Login.css';
 
 const Login = ({ setLoginUser, setIsloggedIn }) => {
-  const [showPassword, setShowPassword] = useState(false);
-  const userRef = useRef();
-  const errRef = useRef();
-  const [errMsg, setErrMsg] = useState('');
-  const [isClicked, setIsClicked] = useState(false);
+    const [showPassword, setShowPassword] = useState(false);
+    const userRef = useRef();
+    const errRef = useRef();
+    const [errMsg, setErrMsg] = useState('');
+    const [success, setSuccess] = useState(false);
+    const [isClicked, setIsClicked] = useState(false);
 
   const navigate = useNavigate();
 
@@ -20,60 +22,63 @@ const Login = ({ setLoginUser, setIsloggedIn }) => {
     password: ''
   });
 
-  useEffect(() => {
-    userRef.current.focus();
-  }, []);
+    useEffect(() => {
+        userRef.current.focus();
+    }, []);
 
-  useEffect(() => {
-    setErrMsg('');
-  }, [user.email, user.password]);
+    useEffect(() => {
+        setErrMsg('');
+    }, [user.email, user.password]);
 
-  const handleChange = (e) => {
-    const { name, value } = e.target;
-    setUser({
-      ...user,
-      [name]: value
-    });
-  };
-
-  const handleLogin = async (e) => {
-    e.preventDefault();
-    setIsClicked(true);
-    try {
-      const res = await axios.post(`${APIURL}/api/auth/login`, user);
-      if (res.data.user) {
-        localStorage.setItem('isLoggedIn', true);
-        setLoginUser(res.data.user);
-        localStorage.setItem('userDetails', JSON.stringify(res.data.user));
-        toast.success('Logged In', {
-          autoClose: 5000
+    const handleChange = (e) => {
+        const { name, value } = e.target;
+        setUser({
+            ...user,
+            [name]: value
         });
-        setIsloggedIn(true);
-        setIsClicked(false);
-        if (res.data.user.isAdmin) {
-          navigate('/AdminDashboard');
-        } else {
-          navigate('/DoctorDashboard');
+    };
+
+    const handleLogin = async (e) => {
+        e.preventDefault();
+        setIsClicked(true);
+        try {
+            await axios.post(`${APIURL}/api/auth/login`, user)
+                .then(res => {
+                    if (user) {
+                        localStorage.setItem("isLoggedIn", true);
+                        navigate("/");
+                        setSuccess(true);
+                        setLoginUser(res.data.user);
+                        localStorage.setItem("userDetails", JSON.stringify(res.data.user));
+                        toast.success("Logged In", {
+                            autoClose: 5000,
+                        });
+                        setTimeout(() => {
+                            window.location.reload();
+                        }, 1000);
+                        setIsloggedIn(true);
+                        setIsClicked(false);
+                    } else {
+                        console.log("Invalid User");
+                        setIsClicked(false);
+                    }
+                });
+        } catch (err) {
+            if (!err?.response) {
+                setErrMsg('No Server Response');
+            } else if (err.response?.status === 400) {
+                setErrMsg('Missing Username or Password');
+            } else if (err.response?.status === 401) {
+                setErrMsg('Unauthorized');
+            } else {
+                setErrMsg('Login Failed');
+            }
+            errRef.current.focus();
+            alert("You are not registered please Signup first");
         }
-      } else {
-        console.log('Invalid User');
         setIsClicked(false);
-      }
-    } catch (err) {
-      if (!err?.response) {
-        setErrMsg('No Server Response');
-      } else if (err.response?.status === 400) {
-        setErrMsg('Missing Username or Password');
-      } else if (err.response?.status === 401) {
-        setErrMsg('Unauthorized');
-      } else {
-        setErrMsg('Login Failed');
-      }
-      errRef.current.focus();
-      alert('You are not registered, please Signup first');
-      setIsClicked(false);
-    }
-  };
+    };
+
     return (
         <div className="login-container">
             <section className="login-section">

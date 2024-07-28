@@ -1,10 +1,11 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
+import '../styles/Home.css';
+import { useState, useEffect } from 'react';
 import axios from 'axios';
-import '../styles/SuperAdmin.css';
-import DatePicker from 'react-datepicker';
-import 'react-datepicker/dist/react-datepicker.css';
 import { APIURL } from '../env';
 import { useNavigate } from 'react-router-dom';
+import DatePicker from "react-datepicker";
+
 
 const SuperAdmin = () => {
   const [locations, setLocations] = useState([]);
@@ -84,6 +85,6 @@ const SuperAdmin = () => {
       </div>
     </div>
   );
-};
+}
 
 export default SuperAdmin;

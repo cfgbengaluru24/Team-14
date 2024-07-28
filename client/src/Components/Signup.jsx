@@ -6,12 +6,26 @@ import { Link, useNavigate } from 'react-router-dom';
 import { APIURL } from '../env';
 import '../styles/Signup.css';
 
+const USER_REGEX = /^[A-Za-z][A-Za-z0-9-_ ]{3,23}$/;
+const EMAIL_REGEX =  /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i;
+const PWD_REGEX = /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%]).{6,24}$/;
+
 const Signup = () => {
   const userRef = useRef();
   const errRef = useRef();
   const [showPassword, setShowPassword] = useState(false);
   const [showConfirmPassword, setShowConfirmPassword] = useState(false);
   const [isClicked, setIsClicked] = useState(false);
+
+  const [validName, setValidName] = useState(false);
+  const [validEmail, setValidEmail] = useState(false);
+  const [userFocus, setUserFocus] = useState(false);
+
+  const [validPwd, setValidPwd] = useState(false);
+  const [pwdFocus, setPwdFocus] = useState(false);
+
+  const [validMatch, setValidMatch] = useState(false);
+  const [matchFocus, setMatchFocus] = useState(false);
 
   const [errMsg, setErrMsg] = useState('');
   const [user, setUser] = useState({
@@ -20,13 +34,26 @@ const Signup = () => {
     password: "",
     confirmPassword: "",
   });
-
+  
   const [userType, setUserType] = useState("User");
   const [secretKey, setSecretKey] = useState("");
 
   useEffect(() => {
     userRef.current.focus();
   }, []);
+  
+  useEffect(() => {
+    setValidName(USER_REGEX.test(user.name));
+  }, [user.name]);
+
+  useEffect(() => {
+    setValidEmail(EMAIL_REGEX.test(user.email));
+  }, [user.email]);
+
+  useEffect(() => {
+    setValidPwd(PWD_REGEX.test(user.password));
+    setValidMatch(user.password === user.confirmPassword);
+  }, [user.password, user.confirmPassword]);
 
   useEffect(() => {
     setErrMsg('');
