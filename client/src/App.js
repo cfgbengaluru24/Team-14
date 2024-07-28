@@ -23,6 +23,8 @@ import SuperAdmin from './Components/SuperAdmin';
 import { useEffect, useState } from 'react';
 import Signup from './Components/Signup';
 import Login from './Components/Login';
+import Donate from './Components/Donate.jsx';
+import Success from './Components/Success.jsx';
 import LineGraph from './Components/LineGraph.jsx';
 import DoctorAppointments from './Components/DoctorAppointments.jsx';
 import PatientInfo from './Components/PatientInfo.jsx';
@@ -43,15 +45,15 @@ export default function App() {
       setUserDetails({});
     }
   },[])
-
-
   return (
      <BrowserRouter>
       <div className="App">
-        {/* <Nav/> */}
+         <Nav/> 
         {
           loggedIn? <Nav isloggedIn={isloggedIn} userDetails={userDetails} setUserDetails={setUserDetails} setIsloggedIn={setIsloggedIn} loggedIn={loggedIn}/>:null
         }
+
+
         <Routes>
 
           <Route path="/"  element={<Home userDetails={userDetails}/> } />
@@ -76,6 +78,8 @@ export default function App() {
           <Route path="/Form/PatientInfo" element={<PatientInfo />} />
           <Route path="/Form/HealthForm" element={<HealthForm/>} />
           <Route path="/rbsk" element={<Rbsk/>} />
+          <Route path="/Donate" element={<Donate/>}/>
+          <Route path="/Success" element={<Success/>}/>
           <Route path="/login" element={<Login setLoginUser={setLoginUser} setIsloggedIn={setIsloggedIn} userDetails={userDetails}/>}/>
           <Route path="/signup" element={<Signup setLoginUser={setLoginUser}/>}/>
           {/* <Route path="/doctorPortal" element={<DoctorAppointments userDetails={userDetails}/>}/> */}

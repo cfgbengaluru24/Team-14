@@ -1,15 +1,19 @@
-import React from 'react'
-import HealthForm from './Forms/HealthForm'
+import React from 'react';
+import Lander from './Lander';
 import { Link } from 'react-router-dom';
 import Button_comp from './Button_comp';
 import '../styles/Home.css';
 import SuperAdmin from './SuperAdmin';
-import PatientInfo from './PatientInfo';
+
+
 
 export default function Home({ userDetails }) {
   return (
     <>
-      Home
+      <div className="home-container">
+      
+        <Lander />
+      </div>
       {userDetails.isAdmin && (
         <div>
           <div className="button-container">
@@ -24,7 +28,6 @@ export default function Home({ userDetails }) {
         
         
       )}
-      <div>This is the Home Page!</div>
     </>
   );
 }

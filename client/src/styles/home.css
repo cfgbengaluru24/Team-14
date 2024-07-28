@@ -1,0 +1,241 @@
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+background: url('https://st2.depositphotos.com/1769810/11891/i/950/depositphotos_118915424-stock-photo-amroha-utter-pradesh-india-2011.jpg') no-repeat center center fixed;
+  background-size: cover;
+
+  }
+
+  /* Lander Styles */
+  .lander-container {
+    text-align: center;
+    padding: 50px;
+    background-color: rgba(255, 255, 255, 0.8); /* Mild white shade */
+    border-radius: 10px;
+    margin: 50px auto;
+    width: 80%;
+    max-width: 600px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+
+  }
+
+  .lander-logo {
+    width: 300px;
+    height: auto;
+
+  }
+
+  .lander-text {
+    font-size: 1.5em;
+    margin-top: 20px;
+    color: #333;
+  }
+
+  /* Navbar Styles */
+  .nav-container {
+    background-color: rgba(51, 51, 51, 0.8);
+  color: white;
+  padding: 10px 20px;
+  }
+
+  .nav-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .nav-title {
+    margin: 0;
+    color: #f9f9f9;
+  }
+
+  .nav-subtitle {
+    margin: 0;
+  }
+
+  .nav-links {
+    display: flex;
+    align-items: center;
+  }
+
+  .nav-link {
+    color: white;
+    text-decoration: none;
+    margin: 0 10px;
+  }
+
+  .nav-donate {
+    background-color: #ff0000;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+  }
+
+  .nav-donate:hover {
+    background-color: #cc0000;
+  }
+
+  .nav-toggle {
+    display: none;
+    background: none;
+    border: none;
+    cursor: pointer;
+  }
+
+  .nav-icon {
+    width: 24px;
+    height: 24px;
+  }
+
+  .nav-mobile-menu {
+    display: none;
+  }
+
+  .nav-mobile-link {
+    display: block;
+    padding: 10px;
+    text-decoration: none;
+    color: white;
+  }
+
+  .nav-mobile-donate {
+    display: block;
+    background-color: #ff0000;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+  }
+
+  .nav-mobile-donate:hover {
+    background-color: #cc0000;
+  }
+
+  @media (max-width: 768px) {
+    .nav-links {
+      display: none;
+    }
+
+    .nav-toggle {
+      display: block;
+    }
+
+    .nav-mobile-menu {
+      display: block;
+    }
+  }
+
+  /* Footer Styles */
+  .footer-container {
+    background-color: #222;
+    color: white;
+    padding: 20px;
+  }
+
+  .footer-content {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+  }
+
+  .footer-brand {
+    flex: 1;
+  }
+
+  .footer-description {
+    margin-bottom: 10px;
+  }
+
+  .footer-social {
+    display: flex;
+  }
+
+  .social-icon {
+    width: 24px;
+    height: 24px;
+    background-size: cover;
+    margin-right: 10px;
+  }
+
+  .footer-links {
+    display: flex;
+    flex: 3;
+    justify-content: space-between;
+  }
+
+  .footer-section {
+    margin: 10px;
+  }
+
+  .footer-title {
+    margin: 0 0 10px 0;
+  }
+
+  .footer-list {
+    list-style: none;
+    padding: 0;
+  }
+
+  .footer-item {
+    margin: 5px 0;
+  }
+
+  .footer-bottom {
+    text-align: center;
+    padding: 10px 0;
+  }
+
+  .footer-bottom.dark {
+    background-color: #222;
+    color: white;
+  }
+
+  .footer-bottom.light {
+    background-color: #f9f9f9;
+    color: black;
+  }
+
+  /* Social Icon Background URLs - Empty for now */
+  .facebook {
+    background-image: url('https://cdn.pixabay.com/photo/2021/06/15/12/51/facebook-6338507_1280.png');
+  }
+
+  .twitter {
+    background-image: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQdkbq-094WlodH_1w7xW6QoUqoafZcgLPKbA&s');
+  }
+
+  .github {
+    background-image: url('https://cdn-icons-png.flaticon.com/512/25/25231.png');
+  }
+
+  .youtube {
+    background-image: url('https://static.vecteezy.com/system/resources/previews/018/930/572/non_2x/youtube-logo-youtube-icon-transparent-free-png.png');
+  }
+
+  .instagram {
+    background-image: url('https://static.vecteezy.com/system/resources/previews/018/930/415/non_2x/instagram-logo-instagram-icon-transparent-free-png.png');
+  }
+
+  /* SuperAdmin Styles */
+  .superadmin-container {
+    padding: 20px;
+    text-align: center;
+    font-size: 2em;
+  }
+
+  /* Home Container */
+  .home-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+  }
+
+.button-container {
+    display: flex;
+    justify-content: flex-end;
+    margin-right: 20px; /* Adjust margin as needed */
+  }
+  
